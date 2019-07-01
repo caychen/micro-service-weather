@@ -1,0 +1,19 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: weather-zipkin-server
+
+  main: #允许bean被重写
+    allow-bean-definition-overriding: true
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false #去除控制台异常
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

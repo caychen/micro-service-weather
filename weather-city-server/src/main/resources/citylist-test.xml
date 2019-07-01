@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<city-list>
+    <city id="101190101" en="nanjing" cn="南京" privince="江苏" />
+    <city id="101190201" en="wuxi" cn="无锡" privince="江苏" />
+    <city id="101190401" en="suzhou" cn="苏州" privince="江苏" />
+    <city id="101190501" en="nantong" cn="南通" privince="江苏" />
+    <city id="101190601" en="yangzhou" cn="扬州" privince="江苏" />
+    <city id="101190701" en="yancheng" cn="盐城" privince="江苏" />
+    <city id="101190801" en="xuzhou" cn="徐州" privince="江苏" />
+    <city id="101190901" en="huaian" cn="淮安" privince="江苏" />
+    <city id="101191001" en="lianyungang" cn="连云港" privince="江苏" />
+    <city id="101191101" en="changzhou" cn="常州" privince="江苏" />
+    <city id="101191301" en="suqian" cn="宿迁" privince="江苏" />
+</city-list>

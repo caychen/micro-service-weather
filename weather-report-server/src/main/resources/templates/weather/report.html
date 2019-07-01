@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+
+<title>caychen的天气预报</title>
+</head>
+<body>
+	<div class="container" style="padding-top: 20px;">
+		<div class="row">
+			<h3 th:text="${title}">caychen</h3>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<select class="custom-select" style="width: 200px;" id="selectCityId">
+				<option th:each="city : ${cityList}"
+					th:value="${city.id}" th:text="${city.cn}"
+					th:selected="${city.id eq cityId}"></option>
+			</select>
+		</div>
+		<div th:if="${report != null}">
+			<div class="row">
+				<h1 class="text-success" th:text="${report.city}">深圳</h1>
+			</div>
+			<div class="row">
+				<p>
+					空气质量指数：<span th:text="${report.airQualityIndex}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					当前温度：<span th:text="${report.temperature}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					温馨提示：<span th:text="${report.tip}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<div class="card border-info" th:each="forecast : ${report.forecast}">
+					<div class="card-body text-info">
+						<p class ="card-text" th:text="${forecast.date}">日期</p>
+						<p class ="card-text" th:text="${forecast.weatherType}">天气类型</p>
+						<p class ="card-text" th:text="${forecast.high}">最高温度</p>
+						<p class ="card-text" th:text="${forecast.low}">最低温度</p>
+						<p class ="card-text" th:text="${forecast.windDirection}">风向</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:if="${report == null}">
+			<div class="row">
+				<p>
+					天气数据API服务暂不可用，请稍后再试！
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script th:src="@{/webjars/jquery/3.4.1/dist/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/1.15.0/dist/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+	<!-- Optional JavaScript -->
+	<script type="text/javascript" th:src="@{/js/weather/report.js}"></script>
+</body>
+</html>

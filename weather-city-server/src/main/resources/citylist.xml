@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<city-list>
+    <city id="101190401" en="suzhou" cn="苏州" privince="江苏" />
+    <city id="101190402" en="changshu" cn="常熟" privince="江苏" />
+    <city id="101190403" en="zhangjiagang" cn="张家港" privince="江苏" />
+    <city id="101190404" en="kunshan" cn="昆山" privince="江苏" />
+    <city id="101190408" en="taicang" cn="太仓" privince="江苏" />
+</city-list>

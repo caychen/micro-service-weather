@@ -1,0 +1,54 @@
+# http://wthrcdn.etouch.cn/weather_mini?city=
+# http://wthrcdn.etouch.cn/weather_mini?citykey=
+weather:
+  url:
+    by-city-name: http://wthrcdn.etouch.cn/weather_mini?city=
+    by-city-key: http://wthrcdn.etouch.cn/weather_mini?citykey=
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: weather-collection-server
+  zipkin:
+    base-url: http://localhost:8087 #链路服务的地址
+  sleuth:
+    sampler:
+      probability: 0.5 #采样比例
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 3 #续约间隔心跳时间，默认为30秒，表示eureka-client每隔N秒向eureka-server发送心跳的时间间隔，如果在lease-expiration-duration-in-seconds这个区间内，都没有收到来自client发送的心跳，则server则会将该服务实例注销
+    lease-expiration-duration-in-seconds: 5 #续约过期时间，默认为90秒，该值不能设置太长，否则server无法及时感知client的状态
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+  hystrix:
+    enabled: true #要使用feign的fallback功能，必须开启该选项
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  # 可以公开端点，最后一个为dashboard端点
+          - "health"
+          - "beans"
+          - "env"
+          - "info"
+          - "metrics"
+          - "mappings"
+          - "hystrix.stream"
+        exclude:  # 不公开的端点
+          - "sessions"
+
+  endpoint:
+    health:
+      show-details: always #配置开启详细信息，默认为never

@@ -1,0 +1,16 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: weather-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/caychen/spring-cloud-config/ #配置git仓库位置
+          search-paths: weather #配置仓库路径下的相对搜索位置，可以多个
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

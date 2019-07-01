@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.caychen.weather</groupId>
+	<artifactId>micro-service-weather</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+		<fastjson.version>1.2.44</fastjson.version>
+		<lombok.version>1.18.0</lombok.version>
+		<guava.version>23.0</guava.version>
+		<jquery.version>3.4.1</jquery.version>
+		<bootstrap-js.version>4.3.1</bootstrap-js.version>
+		<popper-js.version>1.15.0</popper-js.version>
+
+		<!-- 高版本2.12.x的zipkin会启动不了服务 -->
+		<zipkin.version>2.11.13</zipkin.version>
+	</properties>
+
+	<modules>
+		<module>weather-collection-server</module>
+		<module>weather-report-server</module>
+		<module>weather-common</module>
+		<module>weather-city-server</module>
+		<module>weather-eureka-server</module>
+		<module>weather-data-server</module>
+		<module>weather-zuul-server</module>
+		<module>weather-config-server</module>
+        <module>weather-zipkin-server</module>
+    </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.webjars.bower</groupId>
+				<artifactId>jquery</artifactId>
+				<version>${jquery.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>bootstrap</artifactId>
+				<version>${bootstrap-js.version}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>jquery</artifactId>
+						<groupId>org.webjars</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.webjars.npm/popper.js -->
+			<dependency>
+				<groupId>org.webjars.npm</groupId>
+				<artifactId>popper.js</artifactId>
+				<version>${popper-js.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server -->
+			<dependency>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-server</artifactId>
+				<version>${zipkin.version}</version>
+			</dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-ui</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+
+
+
+        </dependencies>
+	</dependencyManagement>
+
+</project>

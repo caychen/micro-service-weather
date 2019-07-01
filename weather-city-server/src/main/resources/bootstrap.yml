@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: weather-city-server
+  zipkin:
+    base-url: http://localhost:8087 #链路服务的地址
+  sleuth:
+    sampler:
+      probability: 0.5 #采样比例
+
+  cloud:
+    config:
+      uri: http://localhost:8086 #用于单一的config server时使用
+      name: cityxml # 对应config-server配置文件中的{application}部分
+      profile: default # 对应config-server配置文件中的{profile}部分
+      label: master # 表示git分支，默认使用master
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true #开启健康状态
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 3 #续约间隔心跳时间，默认为30秒，表示eureka-client每隔N秒向eureka-server发送心跳的时间间隔，如果在lease-expiration-duration-in-seconds这个区间内，都没有收到来自client发送的心跳，则server则会将该服务实例注销
+    lease-expiration-duration-in-seconds: 5 #续约过期时间，默认为90秒，该值不能设置太长，否则server无法及时感知client的状态
+
+
+#####################################################################
+# 用于config server集群时使用，使用服务名来查找配置服务中心
+# 开启通过服务来访问Config Server的功能
+#  spring.cloud.config.discovery.enabled=true
+
+  # 指定Config Server注册的服务名，即config-server端的spring.application.name
+#  spring.cloud.config.discovery.service-id=config-server
+#####################################################################

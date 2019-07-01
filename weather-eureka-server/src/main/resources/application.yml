@@ -1,0 +1,19 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: weather-eureka-server
+eureka:
+  instance: #查看EurekaInstanceConfigBean
+    hostname: localhost
+    prefer-ip-address: true
+
+  client: #查看EurekaClientConfigBean
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server: #查看EurekaServerConfigBean
+    enable-self-preservation: true #自我保护机制
+    renewal-percent-threshold: 0.5 #留存的服务实例低于该比例时进入保护模式，默认为0.85
+

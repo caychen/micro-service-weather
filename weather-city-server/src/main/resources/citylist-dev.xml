@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<city-list>
+    <city id="101010100" en="beijing" cn="北京" privince="北京" />
+    <city id="101010200" en="haidian" cn="海淀" privince="北京" />
+    <city id="101010300" en="chaoyang" cn="朝阳" privince="北京" />
+    <city id="101010400" en="shunyi" cn="顺义" privince="北京" />
+    <city id="101010500" en="huairou" cn="怀柔" privince="北京" />
+    <city id="101010600" en="tongzhou" cn="通州" privince="北京" />
+    <city id="101010700" en="changping" cn="昌平" privince="北京" />
+    <city id="101010800" en="yanqing" cn="延庆" privince="北京" />
+    <city id="101010900" en="fengtai" cn="丰台" privince="北京" />
+    <city id="101011000" en="shijingshan" cn="石景山" privince="北京" />
+    <city id="101011100" en="daxing" cn="大兴" privince="北京" />
+    <city id="101011200" en="fangshan" cn="房山" privince="北京" />
+    <city id="101011300" en="miyun" cn="密云" privince="北京" />
+    <city id="101011400" en="mentougou" cn="门头沟" privince="北京" />
+    <city id="101011500" en="pinggu" cn="平谷" privince="北京" />
+    <city id="101011600" en="dongcheng" cn="东城" privince="北京" />
+    <city id="101011700" en="xicheng" cn="西城" privince="北京" />
+</city-list>
